@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,300&family=Philosopher:wght@700&display=swap');
+
+.logo {
+    font-size: 38px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logo-text {
+    color: #ff9800;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.logo-accent {
+    color: #000000;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
