@@ -10,16 +10,17 @@ const topListItems = (value) => {
     ul.classList.add('d-flex');
     ul.classList.add('justify-content-between');
     ul.classList.add('list-unstyled');
+    ul.classList.add('text-decoration-underline');
     ul.innerHTML = `
-        <li><button onclick="btnId0()" id="btn-list1" class="btn btn-outline-success">Home</button></li>
-        <li><button onclick="btnId1()" id="btn-list2" class="btn btn-outline-success">Breaking News</button></li>
-        <li><button onclick="btnId2()" id="btn-list3" class="btn btn-outline-success">Regular News</button></li>
-        <li><button onclick="btnId3()" id="btn-list4" class="btn btn-outline-success">International News</button></li>
-        <li><button onclick="btnId4()" id="btn-list5" class="btn btn-outline-success">Sports</button></li>
-        <li><button onclick="btnId5()" id="btn-list6" class="btn btn-outline-success">Entertainment</button></li>
-        <li><button onclick="btnId6()" id="btn-list7" class="btn btn-outline-success">Culture</button></li>
-        <li><button onclick="btnId7()" id="btn-list8" class="btn btn-outline-success">Arts</button></li>
-        <li><button onclick="btnId8()" id="btn-list9" class="btn btn-outline-success">All News</button></li>
+        <li><button onclick="btnId0()" id="btn-list1" class="btn btn-outline-dark">Home</button></li>
+        <li><button onclick="btnId1()" id="btn-list2" class="btn btn-outline-dark">Breaking News</button></li>
+        <li><button onclick="btnId2()" id="btn-list3" class="btn btn-outline-dark">Regular News</button></li>
+        <li><button onclick="btnId3()" id="btn-list4" class="btn btn-outline-dark">International News</button></li>
+        <li><button onclick="btnId4()" id="btn-list5" class="btn btn-outline-dark">Sports</button></li>
+        <li><button onclick="btnId5()" id="btn-list6" class="btn btn-outline-dark">Entertainment</button></li>
+        <li><button onclick="btnId6()" id="btn-list7" class="btn btn-outline-dark">Culture</button></li>
+        <li><button onclick="btnId7()" id="btn-list8" class="btn btn-outline-dark">Arts</button></li>
+        <li><button onclick="btnId8()" id="btn-list9" class="btn btn-outline-dark">All News</button></li>
     `
     topButtonGrp.appendChild(ul);
 }
@@ -100,7 +101,25 @@ const sendData = (data) => {
                 <div class="card-body">
                     <h5 class="card-title">${element.title}</h5>
                     <p class="card-text">${element.details.slice(0, 200)}</p>
-                    <p class="card-text"><small class="text-body-secondary">${element.author.name}</small></p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex mt-5">
+                            <img class="author-img me-3" src="${element.author.img}">
+                            <div class="lh-1 text-decoration"> 
+                               <p class="card-text"><small class="text-body-secondary">${element.author.name}</small></p>
+                               <p class="card-text"><small class="text-body-secondary">${element.author.published_date}</small></p>
+                            </div>
+                        </div>
+                        <div class="d-flex mt-5">
+                            <p class="me-2"><i class="fa-regular fa-eye fa-xl"></i></p>
+                            <div>
+                                <p class="fw-bolder">${element.total_view}</p>
+                                
+                            </div>
+                        </div>
+                        <div>
+                        
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
