@@ -85,8 +85,18 @@ const btnId8 = async () => {
 const sendData = (data) => {
 
     console.log(data);
-    const breakingNews = document.getElementById('breaking News');
-    breakingNews.innerHTML = ``;
+    const countPortals = document.getElementById('news-count');
+
+    if (data.length !== 0) {
+        countPortals.classList.remove('d-none');
+        countPortals.innerText = `${data.length} categories found`;
+    }
+    else {
+        countPortals.classList.add('d-none');
+    }
+
+    const newsPortalOpt = document.getElementById('news-portal-opt');
+    newsPortalOpt.innerHTML = ``;
 
     data.forEach(element => {
         const dynamicDivSec = document.createElement('div');
@@ -124,7 +134,7 @@ const sendData = (data) => {
             </div>
         </div>
     `
-        breakingNews.appendChild(dynamicDivSec);
+        newsPortalOpt.appendChild(dynamicDivSec);
     });
 }
 

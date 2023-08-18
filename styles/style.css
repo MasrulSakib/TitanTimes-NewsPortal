@@ -27,3 +27,11 @@
 .text-decoration p {
     line-height: 7px;
 }
+
+.category-count {
+    border: 1px solid whitesmoke;
+    border-radius: 3px;
+    margin-top: 44px;
+    margin-bottom: 44px;
+    padding: 10px;
+}
