@@ -1,6 +1,7 @@
 // portal and cards unit
 
 const topListItems = (value) => {
+    toggleLoader(false);
 
     const url = 'https://openapi.programming-hero.com/api/news/categories'
     fetch(url)
@@ -8,6 +9,7 @@ const topListItems = (value) => {
         .then(data => console.log(data.data.news_category))
 
     const topButtonGrp = document.getElementById('top-btn-group')
+    topButtonGrp.innerHTML = ``;
     const ul = document.createElement('ul');
     ul.classList.add('d-flex');
     ul.classList.add('justify-content-between');
@@ -27,6 +29,16 @@ const topListItems = (value) => {
     topButtonGrp.appendChild(ul);
 
 
+}
+
+const btnId0 = async () => {
+    toggleLoader(true);
+
+
+    const url = `https://openapi.programming-hero.com/api/news/category`
+    const res = await fetch(url);
+    const data = await res.json();
+    topListItems(data);
 }
 
 const btnId1 = async () => {
@@ -134,7 +146,7 @@ const sendData = (data) => {
         dynamicDivSec.classList.add('col');
 
         dynamicDivSec.innerHTML = `
-        <div class="d-flex flex-row justify-content-between card mb-3" style="max-width: auto;">
+        <div class="d-flex flex-row justify-content-between card mb-3 p-3" style="max-width: auto;">
             <div class="col-md-4">
                 <img src="${element.thumbnail_url}" class="img-fluid rounded-start" alt="...">
             </div>
@@ -146,14 +158,14 @@ const sendData = (data) => {
                         <div class="d-flex mt-5">
                             <img class="author-img me-3" src="${element.author.img}">
                             <div class="lh-1 text-decoration"> 
-                               <p class="card-text"><small class="text-body-secondary">${element.author.name}</small></p>
-                               <p class="card-text"><small class="text-body-secondary">${element.author.published_date}</small></p>
+                               <p class="card-text"><small class="text-body-secondary">${element.author.name === null || element.author.name === "" ? "No Data Found" : element.author.name}</small></p>
+                               <p class="card-text"><small class="text-body-secondary">${element.author.published_date === null || element.author.published_date === "" ? "To be Announced" : element.author.published_date}</small></p> 
                             </div>
                         </div>
                         <div class="d-flex mt-5">
                             <p class="me-2"><i class="fa-regular fa-eye fa-xl"></i></p>
                             <div>
-                                <p class="fw-bolder">${element.total_view}</p>
+                                <p class="fw-bolder">${element.total_view === null || element.total_view === "" ? "No Data Found" : element.total_view}</p>
                                 
                             </div>
                         </div>
