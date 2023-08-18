@@ -3,10 +3,15 @@
 const topListItems = (value) => {
     toggleLoader(false);
 
-    const url = 'https://openapi.programming-hero.com/api/news/categories'
-    fetch(url)
-        .then(res => res.json())
-        .then(data => console.log(data.data.news_category))
+    try {
+        const url = 'https://openapi.programming-hero.com/api/news/categories'
+        fetch(url)
+            .then(res => res.json())
+            .then(data => console.log(data.data.news_category))
+    }
+    catch (error) {
+        console.log(error);
+    }
 
     const topButtonGrp = document.getElementById('top-btn-group')
     topButtonGrp.innerHTML = ``;
@@ -126,8 +131,6 @@ const btnId8 = async () => {
 
 const sendData = (data) => {
 
-    console.log(data);
-
     const countPortals = document.getElementById('news-count');
 
     if (data.length !== 0) {
@@ -186,13 +189,18 @@ const sendData = (data) => {
 const detailsModal = async (newsId) => {
 
     toggleLoader(true);
-    const url = `https://openapi.programming-hero.com/api/news/${newsId}`
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data.data[0]);
-    dynamicModal(data.data[0]);
 
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/${newsId}`
+        const res = await fetch(url);
+        const data = await res.json();
+        // console.log(data.data[0]);
+        dynamicModal(data.data[0]);
+    }
 
+    catch (error) {
+        console.log(error);
+    }
 
 }
 
