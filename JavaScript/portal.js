@@ -31,6 +31,55 @@ const btnId1 = async () => {
     sendData(data.data);
 
 }
+const btnId2 = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/02`
+    const res = await fetch(url);
+    const data = await res.json();
+    sendData(data.data);
+
+}
+const btnId3 = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/03`
+    const res = await fetch(url);
+    const data = await res.json();
+    sendData(data.data);
+
+}
+const btnId4 = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/04`
+    const res = await fetch(url);
+    const data = await res.json();
+    sendData(data.data);
+
+}
+const btnId5 = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/05`
+    const res = await fetch(url);
+    const data = await res.json();
+    sendData(data.data);
+
+}
+const btnId6 = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/06`
+    const res = await fetch(url);
+    const data = await res.json();
+    sendData(data.data);
+
+}
+const btnId7 = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/07`
+    const res = await fetch(url);
+    const data = await res.json();
+    sendData(data.data);
+
+}
+const btnId8 = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/08`
+    const res = await fetch(url);
+    const data = await res.json();
+    sendData(data.data);
+
+}
 
 const sendData = (data) => {
 
