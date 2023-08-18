@@ -1,3 +1,5 @@
+// portal and cards unit
+
 const topListItems = (value) => {
 
     const url = 'https://openapi.programming-hero.com/api/news/categories'
@@ -23,23 +25,33 @@ const topListItems = (value) => {
         <li><button onclick="btnId8()" id="btn-list9" class="btn btn-outline-dark">All News</button></li>
     `
     topButtonGrp.appendChild(ul);
+
+
 }
 
 const btnId1 = async () => {
+    toggleLoader(true);
+
     const url = `https://openapi.programming-hero.com/api/news/category/01`
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
 
+
 }
 const btnId2 = async () => {
+
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/category/02`
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
 
+
 }
 const btnId3 = async () => {
+
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/category/03`
     const res = await fetch(url);
     const data = await res.json();
@@ -47,49 +59,68 @@ const btnId3 = async () => {
 
 }
 const btnId4 = async () => {
+
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/category/04`
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
 
+
 }
 const btnId5 = async () => {
+
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/category/05`
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
 
+
 }
 const btnId6 = async () => {
+
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/category/06`
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
 
+
+
 }
 const btnId7 = async () => {
+
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/category/07`
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
 
+
+
 }
 const btnId8 = async () => {
+
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/category/08`
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
+
+
 
 }
 
 const sendData = (data) => {
 
     console.log(data);
+
     const countPortals = document.getElementById('news-count');
 
     if (data.length !== 0) {
         countPortals.classList.remove('d-none');
-        countPortals.innerText = `${data.length} categories found`;
+        countPortals.innerText = `${data.length} related contents found`;
     }
     else {
         countPortals.classList.add('d-none');
@@ -110,7 +141,7 @@ const sendData = (data) => {
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${element.title}</h5>
-                    <p class="card-text">${element.details.slice(0, 200)}</p>
+                    <p class="card-text">${element.details.slice(0, 200)}...</p>
                     <div class="d-flex justify-content-between">
                         <div class="d-flex mt-5">
                             <img class="author-img me-3" src="${element.author.img}">
@@ -136,14 +167,19 @@ const sendData = (data) => {
     `
         newsPortalOpt.appendChild(dynamicDivSec);
     });
+    toggleLoader(false);
 }
 
+// modal unit
 const detailsModal = async (newsId) => {
+
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/${newsId}`
     const res = await fetch(url);
     const data = await res.json();
     console.log(data.data[0]);
     dynamicModal(data.data[0]);
+
 
 
 }
@@ -159,7 +195,21 @@ const dynamicModal = (element) => {
         <p> Author: ${element.author.name}</p>
     
     `
+    toggleLoader(false);
+
 };
+
+// loader unit
+const toggleLoader = (spinner) => {
+
+    const loaderDiv = document.getElementById('loader');
+    if (spinner === true) {
+        loaderDiv.classList.remove('d-none')
+    }
+    else if (spinner === false) {
+        loaderDiv.classList.add('d-none')
+    }
+}
 
 
 topListItems();
