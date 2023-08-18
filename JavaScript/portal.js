@@ -116,8 +116,8 @@ const sendData = (data) => {
                                 
                             </div>
                         </div>
-                        <div>
-                        
+                        <div class="d-flex mt-5">
+                            <p ><i onclick="detailsModal('${element._id}')" class="fa-solid fa-arrow-right fa-beat fa-2xl" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></i></p>
                         </div>
                     </div>
                 </div>
@@ -127,6 +127,29 @@ const sendData = (data) => {
         breakingNews.appendChild(dynamicDivSec);
     });
 }
+
+const detailsModal = async (newsId) => {
+    const url = `https://openapi.programming-hero.com/api/news/${newsId}`
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data.data[0]);
+    dynamicModal(data.data[0]);
+
+
+}
+
+const dynamicModal = (element) => {
+    const detailsText = document.getElementById('exampleModal');
+    const detailsTextHeader = document.getElementById('exampleModalLabel');
+    detailsTextHeader.innerText = element.title;
+    const portalInnerInfo = document.getElementById('newsInnerInfo');
+
+    portalInnerInfo.innerHTML = `
+        <p> Details: ${element.details}</p><br>
+        <p> Author: ${element.author.name}</p>
+    
+    `
+};
 
 
 topListItems();
