@@ -92,7 +92,7 @@ const sendData = (data) => {
         dynamicDivSec.classList.add('col');
 
         dynamicDivSec.innerHTML = `
-        <div class="d-flex justify-content-between card mb-3" style="max-width: auto;">
+        <div class="d-flex flex-row justify-content-between card mb-3" style="max-width: auto;">
             <div class="col-md-4">
                 <img src="${element.thumbnail_url}" class="img-fluid rounded-start" alt="...">
             </div>
