@@ -36,12 +36,12 @@ const sendData = (data) => {
 
     console.log(data);
     const breakingNews = document.getElementById('breaking News');
-
+    breakingNews.innerHTML = ``;
 
     data.forEach(element => {
         const dynamicDivSec = document.createElement('div');
         dynamicDivSec.classList.add('col');
-        // dynamicDivSec.classList.add('g-3');
+
         dynamicDivSec.innerHTML = `
         <div class="d-flex justify-content-between card mb-3" style="max-width: auto;">
             <div class="col-md-4">
@@ -58,7 +58,6 @@ const sendData = (data) => {
     `
         breakingNews.appendChild(dynamicDivSec);
     });
-
 }
 
 
