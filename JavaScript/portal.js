@@ -16,35 +16,26 @@ const topListItems = (value) => {
     const topButtonGrp = document.getElementById('top-btn-group')
     topButtonGrp.innerHTML = ``;
     const ul = document.createElement('ul');
-    ul.classList.add('d-flex');
-    ul.classList.add('justify-content-between');
+    ul.classList.add('row');
+    ul.classList.add();
+    ul.classList.add('g-2');
+    ul.classList.add('justify-content-around');
     ul.classList.add('list-unstyled');
-    ul.classList.add('text-decoration-underline');
     ul.innerHTML = `
-        <li><button onclick="btnId0()" id="btn-list1" class="btn btn-outline-dark">Home</button></li>
-        <li><button onclick="btnId1()" id="btn-list2" class="btn btn-outline-dark">Breaking News</button></li>
-        <li><button onclick="btnId2()" id="btn-list3" class="btn btn-outline-dark">Regular News</button></li>
-        <li><button onclick="btnId3()" id="btn-list4" class="btn btn-outline-dark">International News</button></li>
-        <li><button onclick="btnId4()" id="btn-list5" class="btn btn-outline-dark">Sports</button></li>
-        <li><button onclick="btnId5()" id="btn-list6" class="btn btn-outline-dark">Entertainment</button></li>
-        <li><button onclick="btnId6()" id="btn-list7" class="btn btn-outline-dark">Culture</button></li>
-        <li><button onclick="btnId7()" id="btn-list8" class="btn btn-outline-dark">Arts</button></li>
-        <li><button onclick="btnId8()" id="btn-list9" class="btn btn-outline-dark">All News</button></li>
+        <li class = "row g-1 col-6 col-lg-3 col-sm-3"><button onclick="btnId1()" id="btn-list2" class="btn btn-outline-dark btn-sm">Breaking News</button></li>
+        <li class = "row g-1 col-6 col-lg-3 col-sm-3"><button onclick="btnId2()" id="btn-list3" class="btn btn-outline-dark btn-sm">Regular News</button></li>
+        <li class = "row g-1 col-6 col-lg-3 col-sm-3"><button onclick="btnId3()" id="btn-list4" class="btn btn-outline-dark btn-sm">International News</button></li>
+        <li class = "row g-1 col-6 col-lg-3 col-sm-3"><button onclick="btnId4()" id="btn-list5" class="btn btn-outline-dark btn-sm">Sports</button></li>
+        <li class = "row g-1 col-6 col-lg-3 col-sm-3"><button onclick="btnId5()" id="btn-list6" class="btn btn-outline-dark btn-sm">Entertainment</button></li>
+        <li class = "row g-1 col-6 col-lg-3 col-sm-3"><button onclick="btnId6()" id="btn-list7" class="btn btn-outline-dark btn-sm">Culture</button></li>
+        <li class = "row g-1 col-6 col-lg-3 col-sm-3"><button onclick="btnId7()" id="btn-list8" class="btn btn-outline-dark btn-sm">Arts</button></li>
+        <li class = "row g-1 col-6 col-lg-3 col-sm-3"><button onclick="btnId8()" id="btn-list9" class="btn btn-outline-dark btn-sm">All News</button></li>
     `
     topButtonGrp.appendChild(ul);
 
 
 }
 
-const btnId0 = async () => {
-    toggleLoader(true);
-
-
-    const url = `https://openapi.programming-hero.com/api/news/category`
-    const res = await fetch(url);
-    const data = await res.json();
-    topListItems(data);
-}
 
 const btnId1 = async () => {
     toggleLoader(true);
@@ -74,6 +65,7 @@ const btnId3 = async () => {
     const data = await res.json();
     sendData(data.data);
 
+
 }
 const btnId4 = async () => {
 
@@ -92,8 +84,6 @@ const btnId5 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
-
-
 }
 const btnId6 = async () => {
 
@@ -102,9 +92,6 @@ const btnId6 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
-
-
-
 }
 const btnId7 = async () => {
 
@@ -114,8 +101,6 @@ const btnId7 = async () => {
     const data = await res.json();
     sendData(data.data);
 
-
-
 }
 const btnId8 = async () => {
 
@@ -124,14 +109,14 @@ const btnId8 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
-
-
-
 }
 
 const sendData = (data) => {
 
+    console.log(data);
     const countPortals = document.getElementById('news-count');
+    const countPortals2 = document.getElementById('news-count2');
+    countPortals2.innerText = ``;
 
     if (data.length !== 0) {
         countPortals.classList.remove('d-none');
@@ -139,7 +124,9 @@ const sendData = (data) => {
     }
     else {
         countPortals.classList.add('d-none');
+        countPortals2.innerText = `Content not Available`;
     }
+
 
     const newsPortalOpt = document.getElementById('news-portal-opt');
     newsPortalOpt.innerHTML = ``;
@@ -149,9 +136,11 @@ const sendData = (data) => {
         dynamicDivSec.classList.add('col');
 
         dynamicDivSec.innerHTML = `
-        <div class="d-flex flex-row justify-content-between card mb-3 p-3" style="max-width: auto;">
+
+
+        <div class="d-md-flex flex-md-row justify-content-between card mb-3 p-3" style="max-width: auto;">
             <div class="col-md-4">
-                <img src="${element.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+                <img src="${element.thumbnail_url}" class="img-fluid img-shape rounded-start" alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -184,6 +173,9 @@ const sendData = (data) => {
     });
     toggleLoader(false);
 }
+
+
+// sorting unit
 
 // modal unit
 const detailsModal = async (newsId) => {
@@ -269,3 +261,5 @@ const toggleLoader = (spinner) => {
 
 
 topListItems();
+
+

@@ -14,32 +14,27 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex align-content-start flex-wrap">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <div class="logo">
                         <span class="logo-text">Titan</span><span class="logo-accent">Times</span>
                     </div>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="d-flex justify-content-end collapse navbar-collapse" id="navbarText">
+                <div class="d-flex justify-content-end" id="navbarText">
                     <span class="navbar-text">
-                        <ul class="navbar-nav nav nav-underline me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a onclick="newsPortal()"
-                                    class="nav-link fw-semibold icon-link icon-link-hover link-danger link-underline-danger link-underline-opacity-50 "
+                        <ul class="navbar-nav me-auto mb-lg-auto d-md-flex flex-row">
+                            <li class="nav-item nav nav-underline px-2 ">
+                                <a class="nav-link fw-semibold icon-link icon-link-hover link-danger link-underline-danger link-underline-opacity-50 "
                                     aria-current="page" href="#">News</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item nav nav-underline px-2">
                                 <a onclick="blogContent()"
                                     class="nav-link icon-link icon-link-hover link-danger link-underline-danger link-underline-opacity-50 fw-semibold "
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
                                     aria-controls="offcanvasWithBothOptions" href="#">blog</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mt-3 px-2">
                                 <a class="nav-link" href="#">
                                     <p><i class="fa-solid fa-user-tie fa-beat"></i></p>
                                 </a>
@@ -79,23 +74,32 @@
             </div>
         </section>
 
+        <!-- btn-group-section -->
         <section>
             <div id="top-btn-group" class="my-4">
 
             </div>
         </section>
+
+        <!-- display total contents section -->
         <section>
             <h5 id="news-count" class=" category-count d-none">
 
             </h5>
+            <h5 id="news-count2">
+
+            </h5>
         </section>
 
+        <!-- inner cardsgroup section -->
         <section>
             <div id="news-portal-opt" class=" row row-cols-1 row-cols-md-1 g-4">
 
 
             </div>
         </section>
+
+        <!-- madal section -->
         <section>
             <div>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -115,7 +119,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <script src="https://kit.fontawesome.com/9032eb25e0.js" crossorigin="anonymous"></script>

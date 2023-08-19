@@ -16,6 +16,28 @@
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
+@media (max-width: 768px) {
+    .logo {
+        font-size: 28px;
+    }
+
+    .img-shape {
+        height: auto;
+        width: 520px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .img-shape {
+        height: auto;
+        width: 420px;
+    }
+}
+
 .author-img {
     height: 40px;
     width: 40px;
