@@ -46,6 +46,7 @@ const btnId1 = async () => {
     sendData(data.data);
 
 
+
 }
 const btnId2 = async () => {
 
@@ -54,6 +55,7 @@ const btnId2 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
+
 
 
 }
@@ -66,6 +68,7 @@ const btnId3 = async () => {
     sendData(data.data);
 
 
+
 }
 const btnId4 = async () => {
 
@@ -76,6 +79,7 @@ const btnId4 = async () => {
     sendData(data.data);
 
 
+
 }
 const btnId5 = async () => {
 
@@ -84,6 +88,7 @@ const btnId5 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
+
 }
 const btnId6 = async () => {
 
@@ -92,6 +97,7 @@ const btnId6 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
+
 }
 const btnId7 = async () => {
 
@@ -101,6 +107,7 @@ const btnId7 = async () => {
     const data = await res.json();
     sendData(data.data);
 
+
 }
 const btnId8 = async () => {
 
@@ -109,11 +116,14 @@ const btnId8 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
+
 }
 
+
+// inner cards unit
 const sendData = (data) => {
 
-    console.log(data);
+    // console.log(data);
     const countPortals = document.getElementById('news-count');
     const countPortals2 = document.getElementById('news-count2');
     countPortals2.innerText = ``;
@@ -136,7 +146,6 @@ const sendData = (data) => {
         dynamicDivSec.classList.add('col');
 
         dynamicDivSec.innerHTML = `
-
 
         <div class="d-md-flex flex-md-row justify-content-between card mb-3 p-3" style="max-width: auto;">
             <div class="col-md-4">
@@ -171,11 +180,11 @@ const sendData = (data) => {
     `
         newsPortalOpt.appendChild(dynamicDivSec);
     });
+
+
     toggleLoader(false);
 }
 
-
-// sorting unit
 
 // modal unit
 const detailsModal = async (newsId) => {
@@ -186,7 +195,7 @@ const detailsModal = async (newsId) => {
         const url = `https://openapi.programming-hero.com/api/news/${newsId}`
         const res = await fetch(url);
         const data = await res.json();
-        // console.log(data.data[0]);
+        console.log(data.data[0]);
         dynamicModal(data.data[0]);
     }
 
@@ -247,6 +256,7 @@ const blogContent = () => {
     `
 }
 
+
 // loader unit
 const toggleLoader = (spinner) => {
 
@@ -261,5 +271,8 @@ const toggleLoader = (spinner) => {
 
 
 topListItems();
+
+
+
 
 
