@@ -44,7 +44,7 @@ const btnId1 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
-
+    recievedData(data.data);
 
 
 }
@@ -55,7 +55,7 @@ const btnId2 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
-
+    recievedData(data.data);
 
 
 }
@@ -66,7 +66,7 @@ const btnId3 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
-
+    recievedData(data.data);
 
 
 }
@@ -77,7 +77,7 @@ const btnId4 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
-
+    recievedData(data.data);
 
 
 }
@@ -88,7 +88,7 @@ const btnId5 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
-
+    recievedData(data.data);
 }
 const btnId6 = async () => {
 
@@ -97,7 +97,7 @@ const btnId6 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
-
+    recievedData(data.data);
 }
 const btnId7 = async () => {
 
@@ -106,6 +106,7 @@ const btnId7 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
+    recievedData(data.data);
 
 
 }
@@ -116,12 +117,20 @@ const btnId8 = async () => {
     const res = await fetch(url);
     const data = await res.json();
     sendData(data.data);
+    recievedData(data.data);
 
+}
+
+const sendData = (data) => {
+    const sortButton = document.getElementById("sortButton").addEventListener('click', () => {
+        const sortedData = data.sort((a, b) => b.total_view - a.total_view);
+        recievedData(sortedData);
+    })
 }
 
 
 // inner cards unit
-const sendData = (data) => {
+const recievedData = (data) => {
 
     // console.log(data);
     const countPortals = document.getElementById('news-count');
