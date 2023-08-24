@@ -166,9 +166,9 @@ const recievedData = (data) => {
                     <h5 class="card-title">${element.title}</h5>
                     <p class="card-text">${element.details.slice(0, 200)}...</p>
                     <div class="d-flex justify-content-between">
-                        <div class="d-flex mt-5 text-decoration">
+                        <div class="d-flex mt-5">
                             <img class="author-img me-3" src="${element.author.img}">
-                            <div> 
+                            <div class = "text-decoration"> 
                                <p class="card-text"><small class="text-body-secondary">${element.author.name === null || element.author.name === "" ? "No Data Found" : element.author.name}</small></p>
                                <p class="card-text"><small class="text-body-secondary">${element.author.published_date === null || element.author.published_date === "" ? "To be Announced" : element.author.published_date}</small></p> 
                             </div>
