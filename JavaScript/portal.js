@@ -120,6 +120,7 @@ const btnId8 = async () => {
     recievedData(data.data);
 
 }
+// sorting method unit
 
 const sendData = (data) => {
     const sortButton = document.getElementById("sortButton").addEventListener('click', () => {
@@ -156,30 +157,30 @@ const recievedData = (data) => {
 
         dynamicDivSec.innerHTML = `
 
-        <div class="d-md-flex flex-md-row justify-content-between card mb-3 p-3" style="max-width: auto;">
+        <div class="d-md-flex flex-md-row justify-content-between card mb-3 p-md-3" style="max-width: auto;">
             <div class="col-md-4">
-                <img src="${element.thumbnail_url}" class="img-fluid img-shape rounded-start" alt="...">
+                <img src="${element.thumbnail_url}" class="img-fluid img-shape rounded-start p-2" alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${element.title}</h5>
                     <p class="card-text">${element.details.slice(0, 200)}...</p>
                     <div class="d-flex justify-content-between">
-                        <div class="d-flex mt-5">
+                        <div class="d-flex mt-5 text-decoration">
                             <img class="author-img me-3" src="${element.author.img}">
-                            <div class="lh-1 text-decoration"> 
+                            <div> 
                                <p class="card-text"><small class="text-body-secondary">${element.author.name === null || element.author.name === "" ? "No Data Found" : element.author.name}</small></p>
                                <p class="card-text"><small class="text-body-secondary">${element.author.published_date === null || element.author.published_date === "" ? "To be Announced" : element.author.published_date}</small></p> 
                             </div>
                         </div>
-                        <div class="d-flex mt-5">
-                            <p class="me-2"><i class="fa-regular fa-eye fa-xl"></i></p>
+                        <div class="d-flex mt-5 text-inner-size">
+                            <p class="me-2"><i class="fa-regular fa-eye fa-lg"></i></p>
                             <div>
-                                <p class="fw-bolder">${element.total_view === null || element.total_view === "" ? "No Data Found" : element.total_view}</p>
+                                <p class="fw-bolder me-2">${element.total_view === null || element.total_view === "" ? "No Data Found" : element.total_view}</p>
                                 
                             </div>
                         </div>
-                        <div class="d-flex mt-5">
+                        <div class="d-flex mt-5 text-inner-size">
                             <p ><i onclick="detailsModal('${element._id}')" class="fa-solid fa-arrow-right fa-beat fa-2xl" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></i></p>
                         </div>
                     </div>
@@ -189,7 +190,6 @@ const recievedData = (data) => {
     `
         newsPortalOpt.appendChild(dynamicDivSec);
     });
-
 
     toggleLoader(false);
 }

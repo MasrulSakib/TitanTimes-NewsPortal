@@ -25,6 +25,14 @@
         height: auto;
         width: 520px;
     }
+
+    .text-decoration p {
+        line-height: 10px;
+    }
+
+    .text-inner-size {
+        font-size: medium;
+    }
 }
 
 @media (max-width: 480px) {
@@ -36,6 +44,15 @@
         height: auto;
         width: 420px;
     }
+
+    .text-decoration {
+        line-height: 2px;
+    }
+
+    .text-inner-size {
+        font-size: smaller;
+    }
+
 }
 
 .author-img {
@@ -47,7 +64,7 @@
 }
 
 .text-decoration p {
-    line-height: 7px;
+    line-height: 15px;
 }
 
 .category-count {
